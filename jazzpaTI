@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Quieres jugar jazz?</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #fff; /* Cambia el color de fondo según tu preferencia */
+    text-align: center;
+  }
+  #container {
+    text-align: center;
+  }
+  .btn {
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 10px;
+  }
+  #mensaje {
+    font-size: 24px;
+    margin-top: 20px;
+  }
+  #heart {
+    font-size: 36px;
+    color: red;
+    margin-top: 10px;
+  }
+  #hellokitty {
+    width: 100px;
+    margin-top: 20px;
+    display: none; /* Ocultamos inicialmente el gif */
+    margin-bottom: 20px; /* Agregamos un margen inferior */
+  }
+</style>
+</head>
+<body>
+
+<div id="container">
+  <h1 id="titulo">¿Quieres jugar jazz?</h1>
+  <button id="siBtn" class="btn">SI</button>
+  <button id="noBtn" class="btn">NO</button>
+  <div id="mensaje" style="display: none;"></div>
+  <div id="heart" style="display: none;">&#10084;</div>
+  <img id="hellokitty" src="https://i.pinimg.com/originals/7a/f4/58/7af458bc35898f4ffddc076491ea9a37.gif" alt="Hello Kitty">
+</div>
+
+<script>
+  const siBtn = document.getElementById('siBtn');
+  const noBtn = document.getElementById('noBtn');
+  const mensajeDiv = document.getElementById('mensaje');
+  const heartDiv = document.getElementById('heart');
+  const helloKittyImg = document.getElementById('hellokitty');
+  const titulo = document.getElementById('titulo');
+
+  let btnSize = 20; // Tamaño inicial del botón
+
+  noBtn.addEventListener('click', () => {
+    btnSize -= 5; // Disminuimos el tamaño del botón
+    noBtn.style.fontSize = btnSize + 'px';
+    siBtn.style.fontSize = (btnSize + 30) + 'px'; // Aumentamos el tamaño del botón SI
+  });
+
+  siBtn.addEventListener('click', () => {
+    titulo.style.display = 'none'; // Ocultamos el título
+    document.body.style.backgroundImage = "url('https://via.placeholder.com/150')";
+    siBtn.style.display = 'none';
+    noBtn.style.display = 'none';
+    mensajeDiv.textContent = 'Te quiero jazz';
+    mensajeDiv.style.display = 'block';
+    heartDiv.style.display = 'block';
+    helloKittyImg.style.display = 'block'; // Mostramos la imagen de Hello Kitty
+  });
+</script>
+
+</body>
+</html>
